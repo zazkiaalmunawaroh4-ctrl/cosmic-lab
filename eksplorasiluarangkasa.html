@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 Space Explorer | Eksplorasi Luar Angkasa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:#030712;
+color:white;
+overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+content:"";
+position:fixed;
+width:900px;
+height:900px;
+background:#2563eb;
+filter:blur(220px);
+top:-300px;
+left:-300px;
+opacity:.25;
+z-index:-5;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:800px;
+height:800px;
+background:#7c3aed;
+filter:blur(250px);
+bottom:-250px;
+right:-200px;
+opacity:.18;
+z-index:-5;
+}
+
+/* Bintang */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(#7dd3fc 1px, transparent 1px),
+radial-gradient(#fff 1px, transparent 1px);
+background-size:120px 120px,180px 180px,240px 240px;
+animation:moveStars 80s linear infinite;
+opacity:.45;
+z-index:-4;
+}
+
+@keyframes moveStars{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+position:fixed;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(3,7,18,.55);
+backdrop-filter:blur(15px);
+z-index:999;
+}
+
+.logo{
+font-family:Orbitron;
+font-size:30px;
+font-weight:bold;
+color:#38bdf8;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:30px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:100px 20px;
+
+}
+
+.hero h1{
+
+font-family:Orbitron;
+
+font-size:70px;
+
+line-height:1.2;
+
+}
+
+.hero span{
+
+color:#38bdf8;
+
+}
+
+.hero p{
+
+max-width:750px;
+
+margin:30px auto;
+
+line-height:1.9;
+
+font-size:18px;
+
+color:#cbd5e1;
+
+}
+
+.button{
+
+display:inline-block;
+
+padding:16px 42px;
+
+border-radius:50px;
+
+background:linear-gradient(90deg,#2563eb,#06b6d4);
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.4s;
+
+}
+
+.button:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 35px rgba(37,99,235,.45);
+
+}
+
+/* ================= PLANETS ================= */
+
+.section{
+
+padding:100px 8%;
+
+}
+
+.title{
+
+text-align:center;
+
+font-size:42px;
+
+font-family:Orbitron;
+
+margin-bottom:60px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:20px;
+
+padding:30px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+background:rgba(255,255,255,.08);
+
+}
+
+.planet{
+
+font-size:70px;
+
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+color:#38bdf8;
+
+font-family:Orbitron;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+color:#d1d5db;
+
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+.event{
+
+padding:30px;
+
+border-left:4px solid #38bdf8;
+
+margin-bottom:30px;
+
+background:rgba(255,255,255,.05);
+
+border-radius:15px;
+
+}
+
+.event h3{
+
+color:#38bdf8;
+
+margin-bottom:10px;
+
+font-family:Orbitron;
+
+}
+
+/* ================= FACT ================= */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:25px;
+
+text-align:center;
+
+margin-top:60px;
+
+}
+
+.stat{
+
+padding:30px;
+
+background:rgba(255,255,255,.05);
+
+border-radius:20px;
+
+}
+
+.stat h2{
+
+font-size:45px;
+
+color:#38bdf8;
+
+font-family:Orbitron;
+
+}
+
+.stat p{
+
+margin-top:10px;
+
+color:#cbd5e1;
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+text-align:center;
+
+padding:50px;
+
+border-top:1px solid rgba(255,255,255,.1);
+
+color:#94a3b8;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:46px;
+
+}
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+nav{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+nav a{
+
+margin:10px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<header>
+
+<div class="logo">🚀 SPACE EXPLORER</div>
+
+<nav>
+
+<a href="#">Beranda</a>
+
+<a href="#">Planet</a>
+
+<a href="#">Misi</a>
+
+<a href="#">Galaksi</a>
+
+<a href="#">Kontak</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>Jelajahi <span>Keajaiban Alam Semesta</span></h1>
+
+<p>
+
+Dari planet terdekat hingga galaksi yang berjarak jutaan tahun cahaya,
+
+manusia terus menjelajahi misteri luar angkasa melalui teknologi,
+
+roket, satelit, teleskop, dan misi eksplorasi modern.
+
+</p>
+
+<a href="#" class="button">🚀 Mulai Eksplorasi</a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">🪐 Planet Populer</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="planet">🌍</div>
+
+<h3>Bumi</h3>
+
+<p>
+
+Planet yang menjadi rumah bagi miliaran makhluk hidup dan satu-satunya
+
+planet yang diketahui memiliki kehidupan.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="planet">🔴</div>
+
+<h3>Mars</h3>
+
+<p>
+
+Planet merah yang menjadi tujuan utama eksplorasi manusia untuk
+
+kolonisasi di masa depan.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="planet">🪐</div>
+
+<h3>Saturnus</h3>
+
+<p>
+
+Planet bercincin yang memiliki lebih dari seratus satelit alami.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="planet">🌌</div>
+
+<h3>Galaksi</h3>
+
+<p>
+
+Tempat miliaran bintang berkumpul membentuk struktur kosmik yang luar biasa.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">📅 Sejarah Eksplorasi</h2>
+
+<div class="timeline">
+
+<div class="event">
+
+<h3>1957 - Satelit Pertama</h3>
+
+<p>Era eksplorasi luar angkasa dimulai dengan peluncuran satelit pertama.</p>
+
+</div>
+
+<div class="event">
+
+<h3>1969 - Pendaratan di Bulan</h3>
+
+<p>Manusia pertama berhasil berjalan di permukaan Bulan.</p>
+
+</div>
+
+<div class="event">
+
+<h3>1998 - Stasiun Luar Angkasa</h3>
+
+<p>Pembangunan stasiun luar angkasa internasional dimulai sebagai laboratorium di orbit.</p>
+
+</div>
+
+<div class="event">
+
+<h3>2030+</h3>
+
+<p>Misi menuju Mars dan eksplorasi planet lain terus dikembangkan.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">✨ Fakta Menarik</h2>
+
+<div class="stats">
+
+<div class="stat">
+
+<h2>8</h2>
+
+<p>Planet di Tata Surya</p>
+
+</div>
+
+<div class="stat">
+
+<h2>100B+</h2>
+
+<p>Bintang di Galaksi Bima Sakti</p>
+
+</div>
+
+<div class="stat">
+
+<h2>13.8</h2>
+
+<p>Miliar Tahun Usia Alam Semesta</p>
+
+</div>
+
+<div class="stat">
+
+<h2>299.792</h2>
+
+<p>km/detik Kecepatan Cahaya</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2 style="font-family:Orbitron;color:#38bdf8;">
+🚀 SPACE EXPLORER
+</h2>
+
+<br>
+
+<p>
+"Melihat ke langit bukan sekadar mencari bintang,
+tetapi memahami asal-usul dan masa depan umat manusia."
+</p>
+
+<br>
+
+<p>© 2026 Space Explorer • Explore Beyond The Stars</p>
+
+</footer>
+
+</body>
+</html>
